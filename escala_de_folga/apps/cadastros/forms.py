@@ -26,4 +26,13 @@ class FolgaForm(ModelForm):
             'data': widgets.DateInput(attrs={'type': 'date'})
         }
 
+class EscalaForm(ModelForm):
+    
+    class Meta:
+        model = Escala
+        fields = "__all__"
+        widgets = {
+            'data': widgets.DateInput(attrs={'type': 'date'})
+        }
+
     

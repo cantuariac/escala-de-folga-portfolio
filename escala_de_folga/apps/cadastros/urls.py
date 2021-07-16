@@ -14,4 +14,8 @@ urlpatterns = [
     path('folgas/', FolgaListView.as_view(), name='list-folgas'),
     path('folgas/create/', create_folga, name='create-folga'),
     path('folgas/<id>/update/', update_folga, name='update-folga'),
+
+    path('escalas/', EscalaListView.as_view(), name='list-escalas'),
+    path('escalas/create/', create_escala, name='create-escala'),
+    path('escalas/<id>/update/', update_escala, name='update-escala'),
 ]

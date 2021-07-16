@@ -79,7 +79,7 @@ class Folga(models.Model):
         verbose_name_plural = _("folgas")
 
     def __str__(self):
-        return str(self.data)
+        return f'{self.medico} folga no dia {str(self.data)}'
 
 
 class Escala(models.Model):
@@ -96,4 +96,4 @@ class Escala(models.Model):
         verbose_name_plural = _("escalas")
 
     def __str__(self):
-        return str(self.data)
+        return f'{self.medico} trabalha em {self.posto} no dia {str(self.data)}'

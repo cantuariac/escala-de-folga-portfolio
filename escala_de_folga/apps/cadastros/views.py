@@ -68,7 +68,17 @@ class FolgaListView(CustomListView):
     model = Folga
 
 def create_folga(request):
-    return create_model(request, FolgaForm, 'list-folga')
+    return create_model(request, FolgaForm, 'list-folgas')
 
 def update_folga(request, id):
     return update_model(request, id, Folga, FolgaForm, 'list-folgas')
+
+# Escala
+class EscalaListView(CustomListView):
+    model = Escala
+
+def create_escala(request):
+    return create_model(request, EscalaForm, 'list-escalas')
+
+def update_escala(request, id):
+    return update_model(request, id, Escala, EscalaForm, 'list-escalas')
