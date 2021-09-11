@@ -68,7 +68,16 @@ class FolgaListView(CustomListView):
     model = Folga
 
 def create_folga(request):
-    return create_model(request, FolgaForm, 'list-folgas')
+    context = {}
+
+    form = FolgaForm(request.POST or None, request.FILES or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('list-folgas')
+
+    context['form'] = form
+    return render(request, "create_model.html", context)
 
 def update_folga(request, id):
     return update_model(request, id, Folga, FolgaForm, 'list-folgas')

@@ -1,4 +1,4 @@
-from django.forms import ModelForm, widgets
+from django.forms import ModelForm, widgets, DateField, ModelChoiceField, Form
 from .models import *
 
 
@@ -17,13 +17,19 @@ class PostoForm(ModelForm):
         model = Posto
         fields = "__all__"
 
-class FolgaForm(ModelForm):
+class FolgaForm(Form):
+    data = DateField()
+    medico = ModelChoiceField(queryset=Medico.objects.filter())
+    
+
+
+class FolgaModelForm(ModelForm):
     
     class Meta:
         model = Folga
         fields = "__all__"
         widgets = {
-            'data': widgets.DateInput(attrs={'type': 'date'})
+            'data': widgets.DateInput(attrs={'type': 'date'}),
         }
 
 class EscalaForm(ModelForm):
